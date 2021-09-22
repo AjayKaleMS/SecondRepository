@@ -1,4 +1,4 @@
-# File: .github/workflows/Azure_login_action.yml
+# File: .github/workflows/workflow.yml
 
 on: [push]
 
@@ -9,14 +9,8 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Check out repository
-      uses: actions/checkout@v2
-    - uses: azure/login@v1
-        with:
-       creds: ${{ secrets.AZURE_CREDENTIALS }}
-      - run: |
-        az webapp list --query “[?state==‘Running’]”
-
+	  
+    - uses: actions/checkout@v2
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
