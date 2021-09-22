@@ -1,4 +1,4 @@
-# File: .github/workflows/workflow.yml
+# File: .github/workflows/Azure_login_action.yml
 
 on: [push]
 
