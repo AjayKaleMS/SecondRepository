@@ -1,6 +1,6 @@
 # File: .github/workflows/Azure_login_action.yml
 
-on: [push]
+on: [workflow_dispatch]
 
 name: AzureLoginSample
 
