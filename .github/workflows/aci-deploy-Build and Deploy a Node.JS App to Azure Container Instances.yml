@@ -21,7 +21,7 @@ jobs:
           with:
             resource-group: AjayKale_RG
             dns-name-label: "ajaykalecontainer"
-            image: nginix
+            image: nginx
             #registry-username: ${{ secrets.REGISTRY_USERNAME }}
             #registry-password: ${{ secrets.REGISTRY_PASSWORD }}
             name: contoso-container
