@@ -20,7 +20,7 @@ jobs:
           uses: 'azure/aci-deploy@v1'
           with:
             resource-group: AjayKale_RG
-            dns-name-label: "AK"
+            dns-name-label: "ajaykalecontainer"
             image: nginix
             #registry-username: ${{ secrets.REGISTRY_USERNAME }}
             #registry-password: ${{ secrets.REGISTRY_PASSWORD }}
