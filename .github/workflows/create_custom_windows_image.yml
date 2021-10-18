@@ -15,8 +15,8 @@ jobs:
       with:
         creds: ${{secrets.AZURE_CREDENTAILS}}
 
-    - name: BUILD WEBAPP
-      run: sudo ${{ GITHUB.WORKSPACE }}/webApp/buildscript.sh # Runs necessary build scripts and copies built artifacts to  ${{ GITHUB.WORKSPACE }}/workflow-artifacts
+    #- name: BUILD WEBAPP
+     # run: sudo ${{ GITHUB.WORKSPACE }}/webApp/buildscript.sh # Runs necessary build scripts and copies built artifacts to  ${{ GITHUB.WORKSPACE }}/workflow-artifacts
       
 
     - name: BUILD-CUSTOM-VM-IMAGE      
