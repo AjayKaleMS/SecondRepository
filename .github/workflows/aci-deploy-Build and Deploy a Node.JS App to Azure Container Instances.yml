@@ -1,6 +1,6 @@
 
 on: [workflow_dispatch]
-name: Linux_Container_Workflow
+name: ACI_Deploy_Workflow
 
 jobs:
     build-and-deploy:
