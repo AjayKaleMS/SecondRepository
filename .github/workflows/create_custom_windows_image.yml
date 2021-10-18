@@ -23,7 +23,7 @@ jobs:
       uses: azure/build-vm-image@v0
       with:        
         resource-group-name: 'AjayKale_RG'
-        managed-identity: 'myImageBuilderIdentity'
+        managed-identity: 'AzureManagedIdentity-AK'
         location: 'eastus2'
         source-os-type: 'windows'        
         source-image: MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest        
