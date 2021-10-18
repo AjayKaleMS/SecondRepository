@@ -1,6 +1,6 @@
 # File: .github/workflows/Azure_Powershell_login.yml
 
-on: [push]
+on: [workflow_dispatch]
 
 name: AzurePowerShellSample
 
