@@ -5,11 +5,10 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    
-    - uses: azure/login@v1
-      with:
-        creds: '${{ secrets.AZURE_CREDENTAILS }}'
-        
+    # checkout the repo
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@master
+           
     - name: Installing CLI-beta for OIDC
       run: |
            CWD="$(pwd)"  
@@ -21,6 +20,10 @@ jobs:
            pip install -q --extra-index-url https://azurecliedge.blob.core.windows.net/federated-token/simple/ azure-cli
            echo "***************installed cli beta*******************" 
            echo "$CWD/oidc-venv/bin" >> $GITHUB_PATH
+           
+    - uses: azure/login@v1
+      with:
+        creds: '${{ secrets.AZURE_CREDENTAILS }}'
         
     - uses: azure/appservice-settings@v1
       with:
