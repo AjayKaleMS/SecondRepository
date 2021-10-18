@@ -1,4 +1,4 @@
-# .github/workflows/ASP.NET Core-Appsettings.yml
+# ASP.NET Core-Appsettings.yml
 on: [workflow_dispatch]
 
 jobs:
