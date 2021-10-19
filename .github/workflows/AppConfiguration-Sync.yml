@@ -1,0 +1,16 @@
+name: AppConfiguration-Sync
+
+on: workflow_dispatch
+
+jobs:
+  syncconfig:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: azure/appconfiguration-sync@v1
+        with:
+          configurationFile: 'appsettings.json'
+          format: 'json'
+          # Replace <ConnectionString> with the name of the secret in your repository
+          connectionString: ${{ secrets.APPSERVICE_CONNECTION_STRING }}
+          separator: ':'
