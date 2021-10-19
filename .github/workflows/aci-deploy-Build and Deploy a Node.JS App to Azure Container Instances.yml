@@ -24,7 +24,9 @@ jobs:
            
           
         - name: 'Login via Azure CLI'
-          uses: azure/login@v1
+          #uses: azure/login@v1
+          uses: Azure/login@oidc-support
+
           with:
             creds: ${{ secrets.AZURE_CREDENTAILS }}
         
