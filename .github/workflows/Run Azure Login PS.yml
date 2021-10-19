@@ -1,0 +1,57 @@
+name: Run Azure Login PS
+on: workflow_dispatch
+#   push:
+#     paths:
+#       - '.github/workflows/run-azure-login-action-integration-tests.yml'
+
+jobs: 
+  az-login-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+        
+      - name: 'Az CLI login with subscription'
+        #uses: azure/login@v1
+      - uses: Azure/login@oidc-support
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+#           enable-AzPSSession: true
+          
+      - run: |
+          az account show
+          pwd 
+          cat ~/.azure/accessTokens.json
+      - uses: azure/powershell@v1
+        with:
+          inlineScript: |
+            Get-AzContext
+            Get-AzVM -ResourceGroupName "akshaya-tests"
+          azPSVersion: "latest"
+          failOnStandardError: true
+#       - name: Commit files
+#         id: commit
+#         continue-on-error: true
+#         run: |
+#           pwd
+#           ls
+#           git config user.email "balaga-gayatri@github.com"
+#           git config user.name "balaga-gayatri"
+#           git pull
+#           git add --all
+#           if [-z "$(git status --porcelain)"]; then
+#              echo "::set-output name=push::false"
+#           else
+#              git commit -m "Add changes" -a
+#              echo "::set-output name=push::true"
+#           fi
+#         shell: bash
+        
+#       - name: Push changes
+#         if: steps.commit.outputs.push == 'true'
+#         uses: ad-m/github-push-action@master
+#         with:
+#           github_token: "${{ secrets.GITHUB_TOKEN }}"
+          
+          
+#                     cp -R ~/.azure /home/runner/work/azure-login-action-tests/azure-login-action-tests/cli/
