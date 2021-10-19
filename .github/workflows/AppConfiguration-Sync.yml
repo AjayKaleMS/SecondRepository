@@ -1,11 +1,6 @@
 name: AppConfiguration-Sync
 
-on:
-  push:
-    branches:
-      - 'main'
-    paths:
-      - 'appsettings.json'
+on: workflow_dispatch
 
 jobs:
   syncconfig:
