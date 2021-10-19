@@ -51,11 +51,9 @@ jobs:
         popd
         
     - name: 'Az CLI login'
-      uses: 'azure/login@oidc-support'
+      uses: Azure/login@oidc-support
       with:
-          client-id: ${{ secrets.AZURE_CLIENTID }}
-          tenant-id: ${{ secrets.AZURE_TENANTID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTIONID }}
+        creds: '${{ secrets.AZURE_CREDENTAILS }}'
      
     - name: 'Run Azure Functions Action'
       uses: Azure/functions-action@v1
