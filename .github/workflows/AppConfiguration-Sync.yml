@@ -2,11 +2,30 @@ name: AppConfiguration-Sync
 
 on: workflow_dispatch
 
+
+
 jobs:
   syncconfig:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      
+        #CLI dependency test - START
+  
+      - name: Installing CLI-beta for OIDC 
+        run: |
+         CWD="$(pwd)"  
+         python3 -m venv oidc-venv
+         . oidc-venv/bin/activate
+         echo "activated environment" 
+         python3 -m pip install -q --upgrade pip
+         echo "started installing cli beta" 
+         pip install -q --extra-index-url https://azcliprod.blob.core.windows.net/beta/simple/ azure-cli 
+         echo "***************installed cli beta*******************" 
+         echo "$CWD/oidc-venv/bin" >> $GITHUB_PATH
+  
+  #CLI dependency test - END
+      
       - uses: azure/appconfiguration-sync@v1
         with:
           configurationFile: 'appsettings.json'
