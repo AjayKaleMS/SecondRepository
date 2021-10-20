@@ -8,18 +8,21 @@ jobs:
     - uses: actions/checkout@v1
     
     #CLI Dependency Testing - START
-    
-    - name: Installing CLI-beta for OIDC 
-      run: |
-         CWD="$(pwd)"  
-         python3 -m venv oidc-venv
-         . oidc-venv/bin/activate
-         echo "activated environment" 
-         python3 -m pip install -q --upgrade pip
-         echo "started installing cli beta" 
-         pip install -q --extra-index-url https://azcliprod.blob.core.windows.net/beta/simple/ azure-cli 
-         echo "***************installed cli beta*******************" 
-         echo "$CWD/oidc-venv/bin" >> $GITHUB_PATH
+    - uses: actions/setup-python@v2
+      with:
+          python-version: '3.x'
+           
+    - run: |
+        $CWD = Convert-Path .
+        echo $CWD
+        python --version
+        python -m venv oidc-venv
+        . .\oidc-venv\Scripts\Activate.ps1
+        python -m pip install -q --upgrade pip
+        echo "started installing cli beta" 
+        pip install -q --extra-index-url https://azcliprod.blob.core.windows.net/beta/simple/ azure-cli
+        echo "***************installed cli beta*******************" 
+        echo "$CWD\oidc-venv\Scripts" >> $env:GITHUB_PATH
 
     
     #CLI Dependency Testing - END
