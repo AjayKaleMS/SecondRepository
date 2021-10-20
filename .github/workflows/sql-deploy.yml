@@ -23,7 +23,6 @@ jobs:
         pip install -q --extra-index-url https://azcliprod.blob.core.windows.net/beta/simple/ azure-cli
         echo "***************installed cli beta*******************" 
         echo "$CWD\oidc-venv\Scripts" >> $env:GITHUB_PATH
-
     
     #CLI Dependency Testing - END
     
