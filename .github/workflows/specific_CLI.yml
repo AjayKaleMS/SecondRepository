@@ -1,4 +1,4 @@
-# File: .github/workflows/workflow.yml
+name: specific_CLI.yml
 
 on: [push]
 
