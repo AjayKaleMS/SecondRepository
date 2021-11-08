@@ -1,8 +1,6 @@
 name: specific_CLI.yml
 
-on: [push]
-
-name: AzureCLISample
+on: [workflow_dispatch]
 
 jobs:
 
