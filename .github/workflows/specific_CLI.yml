@@ -17,7 +17,8 @@ jobs:
       uses: azure/CLI@v1
       with:
         #azcliversion: 2.0.72
-        azcliversion: latest
+        #azcliversion: latest
+        azcliversion: ubuntu-latest
         inlineScript: |
           az account show
           az storage -h
