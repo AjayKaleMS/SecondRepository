@@ -18,7 +18,7 @@ jobs:
       with:
         #azcliversion: 2.0.72
         #azcliversion: latest
-        azcliversion: ubuntu-latest
+        azcliversion: windows-latest
         inlineScript: |
           az account show
           az storage -h
