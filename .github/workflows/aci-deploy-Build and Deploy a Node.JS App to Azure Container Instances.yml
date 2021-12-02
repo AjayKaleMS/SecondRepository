@@ -1,6 +1,6 @@
 
 on: [workflow_dispatch]
-name: ACI_Deploy_Workflow
+name: ACI_Deploy
 
 jobs:
     build-and-deploy:
