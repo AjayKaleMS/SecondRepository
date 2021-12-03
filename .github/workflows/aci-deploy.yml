@@ -15,15 +15,15 @@ jobs:
           with:
             creds: ${{ secrets.AZURE_CREDENTAILS }}
         
-        - uses: azure/docker-login@v1
-          with:
-            login-server: contoso.azurecr.io
-            username: ${{ secrets.REGISTRY_USERNAME }}
-            password: ${{ secrets.REGISTRY_PASSWORD }}
-        - run: |
-            docker build . -t contoso.azurecr.io/nodejssampleapp:${{ github.sha }}
-            docker push contoso.azurecr.io/nodejssampleapp:${{ github.sha }}
-
+        #- uses: azure/docker-login@v1
+        #  with:
+        #    login-server: contoso.azurecr.io
+        #    username: ${{ secrets.REGISTRY_USERNAME }}
+        #    password: ${{ secrets.REGISTRY_PASSWORD }}
+        #- run: |
+        #    docker build . -t contoso.azurecr.io/nodejssampleapp:${{ github.sha }}
+        #    docker push contoso.azurecr.io/nodejssampleapp:${{ github.sha }}
+        
         - name: 'Deploy to Azure Container Instances'
           uses: 'azure/aci-deploy@v1'
           with:
