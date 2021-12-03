@@ -31,6 +31,6 @@ jobs:
             dns-name-label: ajaykalecontainer
             image: nginx
             cpu: 1
-            memory: 0.5
+            memory: 0.1
             name: contoso-container
             location: 'east us'
