@@ -30,7 +30,7 @@ jobs:
             resource-group: AjayKale_RG
             dns-name-label: ajaykalecontainer
             image: nginx
-            #registry-username: ${{ secrets.REGISTRY_USERNAME }}
-            #registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+            cpu: 1
+            memory: 0.5
             name: contoso-container
             location: 'west us'
