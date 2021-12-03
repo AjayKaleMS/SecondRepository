@@ -27,10 +27,10 @@ jobs:
         - name: 'Deploy to Azure Container Instances'
           uses: 'azure/aci-deploy@v1'
           with:
-            resource-group: contoso
-            dns-name-label: url-for-container
-            image: contoso.azurecr.io/nodejssampleapp:${{ github.sha }}
-            registry-username: ${{ secrets.REGISTRY_USERNAME }}
-            registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+            resource-group: AjayKale_RG
+            dns-name-label: ajaykalecontainer
+            image: nginx
+            #registry-username: ${{ secrets.REGISTRY_USERNAME }}
+            #registry-password: ${{ secrets.REGISTRY_PASSWORD }}
             name: contoso-container
             location: 'west us'
