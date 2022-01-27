@@ -4,12 +4,15 @@ on: [workflow_dispatch]
 
 name: AzureLoginSample
 
+env:
+  tenant_id_var: secrets.getSecret("$.tenantId", false);
+
 jobs:
 
   build-and-deploy:
     runs-on: windows-latest
     steps:
-    - run: echo 'My name is' + $secrets.getSecret("$.tenantId", true);
+    - run: echo 'My name is' + $tenant_id_var;
     - uses: actions/checkout@v2
     - uses: azure/login@v1
       with:
