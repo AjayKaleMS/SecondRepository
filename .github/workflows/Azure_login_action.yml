@@ -10,7 +10,7 @@ env:
 jobs:
 
   build-and-deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - run: echo "Today is $DAY_OF_WEEK!"    
     - uses: actions/checkout@v2
