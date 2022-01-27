@@ -12,7 +12,7 @@ jobs:
   build-and-deploy:
     runs-on: windows-latest
     steps:
-    - run: echo 'My name is' + $tenant_id_var;
+    - run: echo "My name is $tenant_id_var"
     - uses: actions/checkout@v2
     - uses: azure/login@v1
       with:
