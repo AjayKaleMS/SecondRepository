@@ -5,14 +5,14 @@ on: [workflow_dispatch]
 name: AzureLoginSample
 
 env:
-  DAY_OF_WEEK: Monday
+  DAY_OF_WEEK: $secrets.getSecret("$.tenantId", false)
 
 jobs:
 
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "Today is $secrets.getSecret("$.tenantId", false)!"    
+    - run: echo "Today is $DAY_OF_WEEK !"    
     - uses: actions/checkout@v2
     - uses: Azure/login@v1.3.0
       with:
