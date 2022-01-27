@@ -5,6 +5,14 @@ on: [workflow_dispatch]
 name: AzureLoginSample
 
 jobs:
+  
+  secrets_retrive:
+    runs-on: windows-latest
+        let tenantId = secrets.getSecret("$.tenantId", true);
+        let subscriptionId = secrets.getSecret("$.subscriptionId", true);
+    steps:
+    - run: echo '::set-output name=SELECTED_COLOR::green'
+
 
   build-and-deploy:
     runs-on: windows-latest
@@ -15,3 +23,4 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTAILS }}
     - run: |
         az webapp list --query "[?state=='Running']"
+  
