@@ -5,18 +5,11 @@ on: [workflow_dispatch]
 name: AzureLoginSample
 
 jobs:
-  
-  secrets_retrive:
-    runs-on: windows-latest
-        let tenantId = secrets.getSecret("$.tenantId", true);
-        let subscriptionId = secrets.getSecret("$.subscriptionId", true);
-    steps:
-    - run: echo '::set-output name=SELECTED_COLOR::green'
-
 
   build-and-deploy:
     runs-on: windows-latest
-    steps:	  
+    steps:
+    - run: echo '::set-output name=action_echo::disabled' 
     - uses: actions/checkout@v2
     - uses: azure/login@v1
       with:
