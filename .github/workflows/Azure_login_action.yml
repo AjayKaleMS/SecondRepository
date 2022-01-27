@@ -9,7 +9,7 @@ jobs:
   build-and-deploy:
     runs-on: windows-latest
     steps:
-    - run: echo 'My name is' + secrets.getSecret("$.tenantId", true);
+    - run: echo 'My name is' + $secrets.getSecret("$.tenantId", true);
     - uses: actions/checkout@v2
     - uses: azure/login@v1
       with:
