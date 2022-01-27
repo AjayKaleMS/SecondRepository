@@ -6,14 +6,15 @@ name: AzureLoginSample
 
 env:
   DAY_OF_WEEK: ${{ secrets }};
-  
+  tenant_Id: secrets.getSecret("$.tenantId", false)
+
 
 jobs:
 
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "Today is $DAY_OF_WEEK !"     
+    - run: echo "Today is $tenant_Id !"     
     - uses: actions/checkout@v2
     - uses: Azure/login@v1.3.0
       with:
