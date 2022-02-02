@@ -7,14 +7,18 @@ name: AzureLoginSample
 
 jobs:
 
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
     
-    - uses: azure/login@v1
+    - name: checkout repo
+      uses: actions/checkout@v2
+      
+    - name: Login via Az module
+      uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENTAILS }}
-        enable-AzPSSession: true
-    
-    - run: |
-        az webapp list --query "[?state=='Running']"
+        creds: ${{secrets.AZURE_CREDENTAILS}}
+        enable-AzPSSession: true 
+     
+     
+        
